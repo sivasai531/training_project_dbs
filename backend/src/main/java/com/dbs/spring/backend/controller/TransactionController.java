@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import org.json.simple.JSONObject;
 
 @RestController
 @CrossOrigin
@@ -15,8 +16,13 @@ public class TransactionController {
     private TransactionService transactionService;
 
     @PostMapping("/submit")
-    public List<String> saveTransaction(@RequestBody Transaction transaction) {
+    public JSONObject saveTransaction(@RequestBody Transaction transaction) {
         return transactionService.saveTransaction(transaction);
+    }
+
+    @GetMapping("/dashboard")
+    public List<Transaction> getAll() {
+        return transactionService.getAll();
     }
 
 }

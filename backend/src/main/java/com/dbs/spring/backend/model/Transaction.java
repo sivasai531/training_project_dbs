@@ -20,7 +20,7 @@ public class Transaction {
     private String receiveraccountholdername;
     private double currencyamount;
     private double transferfees;
-    private double inamount;
+    private double inramount;
     private Date transferdate;
 
     @ManyToOne
